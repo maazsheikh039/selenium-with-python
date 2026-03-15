@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Practice Lab</title>
+    <style>
+        :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--light); }
+        nav { background: var(--dark); padding: 1rem; display: flex; gap: 20px; justify-content: center; }
+        nav a { color: white; text-decoration: none; cursor: pointer; font-weight: bold; }
+        nav a:hover { color: #38bdf8; }
+        .container { max-width: 800px; margin: 50px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); text-align: center; }
+        .page { display: none; }
+        .active { display: block; }
+        input { display: block; width: 80%; margin: 15px auto; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: var(--primary); color: white; border: none; padding: 10px 25px; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #1d4ed8; }
+        #message { margin-top: 20px; font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a onclick="showPage('home')" id="nav-home">Home</a>
+    <a onclick="showPage('about')" id="nav-about">About</a>
+    <a onclick="showPage('contact')" id="nav-contact">Contact</a>
+    <a onclick="showPage('login')" id="nav-login">Login</a>
+    <a onclick="showPage('signup')" id="nav-signup">Signup</a>
+    <a onclick="showPage('hidden')" id="nav-hidden">hidden page</a>
+</nav>
+
+<div class="container">
+    <div id="home" class="page active">
+        <h1>Welcome to Selenium Lab</h1>
+        <p>Yeh aapki testing practice ke liye aik dummy website hai.</p>
+        <button id="alert-btn" onclick="alert('Hello! Selenium Test Success')">Click for Alert</button>
+    </div>
+
+    <div id="about" class="page">
+        <h1>About Us</h1>
+        <p>Learning DevSysOps and Automation is fun!</p>
+    </div>
+    
+    <div id="contact" class="page">
+        <h1>Contact Us</h1>
+        <input type="text" id="contact-name" placeholder="Your Name">
+        <input type="email" id="contact-email" placeholder="Your Email">
+        <button id="contact-submit" onclick="statusMsg('Message Sent!')">Send Message</button>
+    </div>
+    
+    <div id="login" class="page">
+        <h1>Login</h1>
+        <input type="text" id="login-user" placeholder="Username">
+        <input type="password" id="login-pass" placeholder="Password">
+        <button id="login-submit" onclick="statusMsg('Login Successful!')">Login</button>
+    </div>
+    
+    <div id="signup" class="page">
+        <h1>Signup</h1>
+        <input type="text" id="reg-user" placeholder="Choose Username">
+        <input type="email" id="reg-email" placeholder="Email Address">
+        <input type="password" id="reg-pass" placeholder="Password">
+        <button id="reg-submit" onclick="statusMsg('Account Created!')">Register</button>
+    </div>
+    
+    <div id="hidden" class="page">
+        <h1>Hidden Page</h1>
+        <p>This is a hidden page!</p>
+    </div>
+    <p id="message"></p>
+</div>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        document.getElementById('message').innerText = "";
+    }
+
+    function statusMsg(msg) {
+        document.getElementById('message').innerText = msg;
+    }
+</script>
+
+</body>
+</html>
