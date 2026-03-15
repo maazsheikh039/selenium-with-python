@@ -14,6 +14,8 @@ time.sleep(3)
 
 # ============================================================
 
+driver.find_element(By.ID, "nav-signup").click()
+
 try:
     username = driver.find_element(By.ID, "reg-user").send_keys("maazheikh039")
     email = driver.find_element(By.ID, "reg-email").send_keys("maazheikh039@gmail.com")
