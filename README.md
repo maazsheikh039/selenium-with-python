@@ -1,2 +1,2 @@
-# Sekenium
+# Selenium
 Browser automation with selenium.
