@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import time
 import os
 
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 
 # ============================================================
 
